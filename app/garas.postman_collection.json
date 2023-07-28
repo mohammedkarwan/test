@@ -1,0 +1,980 @@
+{
+	"info": {
+		"_postman_id": "035cf959-db4e-4724-9971-ffe506e6bd38",
+		"name": "garas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8196363"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signup",
+					"item": [
+						{
+							"name": "person",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"subscription\": true,\r\n    \"user_type\": \"normal\",\r\n    \"name_ar\": \"عبدالهادي\",\r\n    \"name_en\": \"Abdelhadi\",\r\n    \"phone\": \"0528235927\",\r\n    \"email\": \"a3@a2.com\",\r\n    \"password\": \"99999\",\r\n    \"country_id\": 20,\r\n    \"language\": \"ar\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://woy.iux.mybluehost.me/so/public/api/sign_up/person",
+									"protocol": "https",
+									"host": [
+										"woy",
+										"iux",
+										"mybluehost",
+										"me"
+									],
+									"path": [
+										"so",
+										"public",
+										"api",
+										"sign_up",
+										"person"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "company",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name_ar\": \"عبدالهادي\",\r\n    \"name_en\": \"Abdelhadi\",\r\n    \"company_name_ar\": \"كودر\",\r\n    \"company_name_en\": \"Coder.ae\",\r\n    \"phone\": \"0528235918\",\r\n    \"email\": \"a2@a.com\",\r\n    \"password\": \"1268\",\r\n    \"country_id\": 20,\r\n    \"language\": \"ar\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{garasLocalHost}}sign_up/company",
+									"host": [
+										"{{garasLocalHost}}sign_up"
+									],
+									"path": [
+										"company"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"phone\" : \"0599413265\",\r\n   \"password\" : \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://woy.iux.mybluehost.me/so/public/api/login",
+							"protocol": "https",
+							"host": [
+								"woy",
+								"iux",
+								"mybluehost",
+								"me"
+							],
+							"path": [
+								"so",
+								"public",
+								"api",
+								"login"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Purchases",
+			"item": [
+				{
+					"name": "favorite",
+					"item": [
+						{
+							"name": "add",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{garasToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"items\":[3,2]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{garasLocalHost}}purchase/favorite",
+									"host": [
+										"{{garasLocalHost}}purchase"
+									],
+									"path": [
+										"favorite"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{garasToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"items\":[3,2]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{garasLocalHost}}purchase/favorite/4",
+									"host": [
+										"{{garasLocalHost}}purchase"
+									],
+									"path": [
+										"favorite",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All favorite",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{garasToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{garasLocalHost}}purchase/favorite",
+									"host": [
+										"{{garasLocalHost}}purchase"
+									],
+									"path": [
+										"favorite"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "All purchases",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{garasLocalHost}}purchases/all",
+							"host": [
+								"{{garasLocalHost}}purchases"
+							],
+							"path": [
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "services",
+			"item": [
+				{
+					"name": "favorite",
+					"item": [
+						{
+							"name": "add",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{garasToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"items\":[16,18]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{garasLocalHost}}service/favorite",
+									"host": [
+										"{{garasLocalHost}}service"
+									],
+									"path": [
+										"favorite"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{garasToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"items\":[3,2]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{garasLocalHost}}service/favorite/4",
+									"host": [
+										"{{garasLocalHost}}service"
+									],
+									"path": [
+										"favorite",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All favorite",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{garasToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{garasLocalHost}}service/favorite",
+									"host": [
+										"{{garasLocalHost}}service"
+									],
+									"path": [
+										"favorite"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "All Services",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{garasLocalHost}}services/all",
+							"host": [
+								"{{garasLocalHost}}services"
+							],
+							"path": [
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "additions",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{garasToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{garasLocalHost}}additions/2",
+							"host": [
+								"{{garasLocalHost}}additions"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "show item",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{garasLocalHost}}purchases/2",
+									"host": [
+										"{{garasLocalHost}}purchases"
+									],
+									"path": [
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 14 Dec 2022 11:11:37 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.41 (Win64) OpenSSL/1.1.1c PHP/7.4.2"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Content-Length",
+									"value": "378"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": false,\n    \"message\": \"data found\",\n    \"data\": {\n        \"id\": 2,\n        \"name_ar\": \"شراء 2\",\n        \"name_en\": \"pur 2\",\n        \"image\": \"http://localhost/so/public/uploads/categories/19071657641831.png\",\n        \"status\": \"disabled\",\n        \"admin_id\": 1,\n        \"unit_id\": 1,\n        \"category_id\": 5,\n        \"sub_category_id\": 6,\n        \"created_at\": \"2022-07-12T17:56:15.000000Z\",\n        \"updated_at\": \"2022-07-12T18:03:51.000000Z\"\n    },\n    \"status_code\": 200\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "subscription",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{garasToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{garasLocalHost}}subscription/show",
+							"host": [
+								"{{garasLocalHost}}subscription"
+							],
+							"path": [
+								"show"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "show item",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{garasLocalHost}}purchases/2",
+									"host": [
+										"{{garasLocalHost}}purchases"
+									],
+									"path": [
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 14 Dec 2022 11:11:37 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.41 (Win64) OpenSSL/1.1.1c PHP/7.4.2"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Content-Length",
+									"value": "378"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": false,\n    \"message\": \"data found\",\n    \"data\": {\n        \"id\": 2,\n        \"name_ar\": \"شراء 2\",\n        \"name_en\": \"pur 2\",\n        \"image\": \"http://localhost/so/public/uploads/categories/19071657641831.png\",\n        \"status\": \"disabled\",\n        \"admin_id\": 1,\n        \"unit_id\": 1,\n        \"category_id\": 5,\n        \"sub_category_id\": 6,\n        \"created_at\": \"2022-07-12T17:56:15.000000Z\",\n        \"updated_at\": \"2022-07-12T18:03:51.000000Z\"\n    },\n    \"status_code\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "active",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{garasToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\": \"zwM2rlUn\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{garasLocalHost}}subscription/active",
+							"host": [
+								"{{garasLocalHost}}subscription"
+							],
+							"path": [
+								"active"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "show item",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{garasLocalHost}}purchases/2",
+									"host": [
+										"{{garasLocalHost}}purchases"
+									],
+									"path": [
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 14 Dec 2022 11:11:37 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.41 (Win64) OpenSSL/1.1.1c PHP/7.4.2"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Content-Length",
+									"value": "378"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": false,\n    \"message\": \"data found\",\n    \"data\": {\n        \"id\": 2,\n        \"name_ar\": \"شراء 2\",\n        \"name_en\": \"pur 2\",\n        \"image\": \"http://localhost/so/public/uploads/categories/19071657641831.png\",\n        \"status\": \"disabled\",\n        \"admin_id\": 1,\n        \"unit_id\": 1,\n        \"category_id\": 5,\n        \"sub_category_id\": 6,\n        \"created_at\": \"2022-07-12T17:56:15.000000Z\",\n        \"updated_at\": \"2022-07-12T18:03:51.000000Z\"\n    },\n    \"status_code\": 200\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "departments",
+			"item": [
+				{
+					"name": "show",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{garasToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name_ar",
+									"value": "اختبار",
+									"type": "text"
+								},
+								{
+									"key": "name_en",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "active",
+									"type": "text"
+								},
+								{
+									"key": "parent_department",
+									"value": "4",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/lenovo/Desktop/410.svg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{garasLocalHost}}departments/12",
+							"host": [
+								"{{garasLocalHost}}departments"
+							],
+							"path": [
+								"12"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "show item",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{garasLocalHost}}purchases/2",
+									"host": [
+										"{{garasLocalHost}}purchases"
+									],
+									"path": [
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 14 Dec 2022 11:11:37 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.41 (Win64) OpenSSL/1.1.1c PHP/7.4.2"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Content-Length",
+									"value": "378"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": false,\n    \"message\": \"data found\",\n    \"data\": {\n        \"id\": 2,\n        \"name_ar\": \"شراء 2\",\n        \"name_en\": \"pur 2\",\n        \"image\": \"http://localhost/so/public/uploads/categories/19071657641831.png\",\n        \"status\": \"disabled\",\n        \"admin_id\": 1,\n        \"unit_id\": 1,\n        \"category_id\": 5,\n        \"sub_category_id\": 6,\n        \"created_at\": \"2022-07-12T17:56:15.000000Z\",\n        \"updated_at\": \"2022-07-12T18:03:51.000000Z\"\n    },\n    \"status_code\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{garasToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name_ar",
+									"value": "اختبار",
+									"type": "text"
+								},
+								{
+									"key": "name_en",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "active",
+									"type": "text"
+								},
+								{
+									"key": "parent_department",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/lenovo/Desktop/410.svg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{garasLocalHost}}departments",
+							"host": [
+								"{{garasLocalHost}}departments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "show item",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{garasLocalHost}}purchases/2",
+									"host": [
+										"{{garasLocalHost}}purchases"
+									],
+									"path": [
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 14 Dec 2022 11:11:37 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.41 (Win64) OpenSSL/1.1.1c PHP/7.4.2"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Content-Length",
+									"value": "378"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": false,\n    \"message\": \"data found\",\n    \"data\": {\n        \"id\": 2,\n        \"name_ar\": \"شراء 2\",\n        \"name_en\": \"pur 2\",\n        \"image\": \"http://localhost/so/public/uploads/categories/19071657641831.png\",\n        \"status\": \"disabled\",\n        \"admin_id\": 1,\n        \"unit_id\": 1,\n        \"category_id\": 5,\n        \"sub_category_id\": 6,\n        \"created_at\": \"2022-07-12T17:56:15.000000Z\",\n        \"updated_at\": \"2022-07-12T18:03:51.000000Z\"\n    },\n    \"status_code\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{garasToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name_ar\":\"اختبار عربي\",\r\n    \"name_en\":\"test en\",\r\n    \"parent_department\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{garasLocalHost}}departments/12",
+							"host": [
+								"{{garasLocalHost}}departments"
+							],
+							"path": [
+								"12"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "show item",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{garasLocalHost}}purchases/2",
+									"host": [
+										"{{garasLocalHost}}purchases"
+									],
+									"path": [
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 14 Dec 2022 11:11:37 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.41 (Win64) OpenSSL/1.1.1c PHP/7.4.2"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Content-Length",
+									"value": "378"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": false,\n    \"message\": \"data found\",\n    \"data\": {\n        \"id\": 2,\n        \"name_ar\": \"شراء 2\",\n        \"name_en\": \"pur 2\",\n        \"image\": \"http://localhost/so/public/uploads/categories/19071657641831.png\",\n        \"status\": \"disabled\",\n        \"admin_id\": 1,\n        \"unit_id\": 1,\n        \"category_id\": 5,\n        \"sub_category_id\": 6,\n        \"created_at\": \"2022-07-12T17:56:15.000000Z\",\n        \"updated_at\": \"2022-07-12T18:03:51.000000Z\"\n    },\n    \"status_code\": 200\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "countries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{garasLocalHost}}countries",
+					"host": [
+						"{{garasLocalHost}}countries"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
